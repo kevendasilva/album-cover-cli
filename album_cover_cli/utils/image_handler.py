@@ -1,4 +1,6 @@
-from PIL import Image, ImageDraw
+from PIL import Image, ImageDraw, ImageFont
+
+from utils.text_handler import TextHandler
 
 class ImageHandler:
   def resize_and_crop_image(self, image, new_height):
@@ -37,3 +39,12 @@ class ImageHandler:
       height = draw.textsize(line, font=font)[1]
       draw.text(position, line, font=font, fill='white', anchor=anchor)
       position = (position[0], position[1] + height)
+
+  def draw(self, cover, texts_data, anchor="la"):
+    txt_handler = TextHandler()
+
+    for text_data in texts_data:
+      text, font_file, font_size, max_width_text, position = text_data
+      font = ImageFont.truetype(font_file, size=font_size)
+      lines = txt_handler.text_lines(text, font, max_width_text)
+      self.draw_text_lines(cover, font, lines, position, anchor)
