@@ -17,20 +17,20 @@ def create_cover(args):
   cover = img_handler.overlap_images(cropped_image, blend)
 
   font_title = ImageFont.truetype('fonts/Poppins-Bold.ttf', size=128)
-  lines = txt_handler.text_lines(args.title, font_title, 600)
-  position = (1088 - 96, 64)
+  lines = txt_handler.text_lines(args.title, font_title, 512)
+  position = (1088 - 96, 96)
   img_handler.draw_text_lines(cover, font_title, lines, position, "ra")
 
   cover = cover.rotate(-90, expand=True)
 
   font_subtitle = ImageFont.truetype('fonts/SourceCodePro-SemiBold.ttf', size=64)
-  lines = txt_handler.text_lines(args.subtitle, font_subtitle, 300)
+  lines = txt_handler.text_lines(args.subtitle, font_subtitle, 360)
   position = (96, 96)
   img_handler.draw_text_lines(cover, font_subtitle, lines, position, "la")
 
   font_description = ImageFont.truetype('fonts/AnonymousPro-Bold.ttf', size=48)
-  lines = txt_handler.text_lines(args.description, font_description, 600)
-  position = (444, 96)
+  lines = txt_handler.text_lines(args.description, font_description, 504)
+  position = (488, 96)
 
   img_handler.draw_text_lines(cover, font_description, lines, position, "la")
 
