@@ -1,6 +1,8 @@
 import argparse
 import sys
 
+from commands.create_cover import create_cover
+
 class AlbumCoverCLI:
   CLI_VERSION = "Album Cover Generator - CLI"
 
@@ -23,11 +25,10 @@ class AlbumCoverCLI:
     args = self.parser.parse_args()
 
     if args.command == "cover":
-      self._create_cover(args)
+      create_cover(args)
     else:
       self.parser.print_help()
       sys.exit(1)
-
 
   def _create_cover_parser(self, subparsers):
     self.cover_parser = subparsers.add_parser("cover", help="cover -h")
@@ -35,6 +36,3 @@ class AlbumCoverCLI:
     self.cover_parser.add_argument("-s", "--subtitle", help="album subtitle", type=str, required=True)
     self.cover_parser.add_argument("-d", "--description", help="album description", type=str, required=True)
     self.cover_parser.add_argument("-ip", "--image-path", help="album image path", type=str, required=True)
-
-  def _create_cover(self, args):
-    print("Creating cover for album: {}".format(args.title))
