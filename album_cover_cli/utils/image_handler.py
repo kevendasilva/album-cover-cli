@@ -1,3 +1,4 @@
+import argparse
 from PIL import Image, ImageDraw, ImageFont
 
 from utils.text_handler import TextHandler
@@ -48,3 +49,10 @@ class ImageHandler:
       font = ImageFont.truetype(font_file, size=font_size)
       lines = txt_handler.text_lines(text, font, max_width_text)
       self.draw_text_lines(cover, font, lines, position, anchor)
+
+  def check_path(self, path):
+    try:
+      Image.open(path)
+      return path
+    except IOError:
+      raise argparse.ArgumentTypeError("The path '{}' is not a valid image".format(path))
