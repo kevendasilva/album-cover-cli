@@ -5,7 +5,7 @@
 I created this project to automate the process of creating album covers. I'm not a musician, but I love music and I love programmig. So I decided to create covers for my projects.
 
 <div align="center">
-  <img  src="images/covers/album-cover-cli.png" style="height: 240px; width: auto;">
+  <img  src="images/album-cover-cli.png" style="height: 240px; width: auto;">
 </div>
 
 ## **The structure**
